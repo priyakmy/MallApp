@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setData() {
         binding.rvCategory.adapter = CategoryAdapter().apply {
-            submitList(DataHolder.categories)
+        submitList(DataHolder.categories)
         }
     }
 }

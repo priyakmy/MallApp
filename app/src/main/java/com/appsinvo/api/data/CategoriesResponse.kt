@@ -1,6 +1,7 @@
 package com.appsinvo.api.data
 
 
+import androidx.annotation.DrawableRes
 import com.google.gson.annotations.SerializedName
 
 data class CategoriesResponse(
@@ -9,7 +10,7 @@ data class CategoriesResponse(
 )
 data class Category(
     @SerializedName("icon")
-    val icon: String = "",
+    @DrawableRes val icon: Int = 0,
     @SerializedName("id")
     val id: Int = 0,
     @SerializedName("is_subcat")

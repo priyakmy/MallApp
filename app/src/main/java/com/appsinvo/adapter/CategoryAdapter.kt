@@ -2,6 +2,7 @@ package com.appsinvo.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -31,6 +32,7 @@ class CategoryAdapter : ListAdapter<Category, CategoryAdapter.CategoryViewHolder
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.binding.item = (getItem(position))
+        holder.binding.ivIcon.background = ContextCompat.getDrawable(holder.binding.ivIcon.context,getItem(position).icon)
     }
 
     inner class CategoryViewHolder(val binding: ItemCategoryBinding) : ViewHolder(binding.root)
