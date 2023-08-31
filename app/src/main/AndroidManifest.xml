@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appsinvo"
         tools:targetApi="31">
+        <activity
+            android:name=".utils.NewsActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

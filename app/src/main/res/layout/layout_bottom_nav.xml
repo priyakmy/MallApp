@@ -4,40 +4,40 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/lavender">
+    android:background="#ffffff"
+    tools:context=".MainActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/frame_layout"/>
-    
+
    <com.google.android.material.bottomappbar.BottomAppBar
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_gravity="bottom"
-       android:background="@color/white"
        app:fabCradleMargin="10dp"
-       app:fabCradleRoundedCornerRadius="50dp">
+       android:layout_gravity="bottom"
+       app:fabCradleVerticalOffset="10dp"
+       app:fabCradleRoundedCornerRadius="10dp"
+       android:id="@+id/bottomAppBar">
 
-       <com.google.android.material.bottomnavigation.BottomNavigationView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:id="@+id/bottomNavigationView"
-           android:layout_margin="20dp"
-           app:labelVisibilityMode="labeled"
-           app:menu="@menu/bottom_nav_menu"
-           />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:forceHasOverlappingRendering="true"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
    </com.google.android.material.bottomappbar.BottomAppBar>
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_face"
-        app:layout_anchor="@id/bottomNavigationView"
-        app:maxImageSize="40dp"
-        android:tint="@color/lavender"
+        android:id="@+id/fab"
+        app:srcCompat="@drawable/ic_home"
+        android:clickable="true"
+        app:backgroundTint="@color/white"
+        app:layout_anchor="@id/bottomAppBar"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

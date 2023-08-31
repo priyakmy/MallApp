@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <item
-        android:id="@+id/navigation_booking"
+        android:id="@+id/miBooking"
         android:icon="@drawable/ic_booking"
+        android:visible="true"
         android:title="My_Booking" />
 
     <item
-        android:id="@+id/navigation_scan"
+        android:id="@+id/miScanQr"
+        android:visible="true"
         android:icon="@drawable/ic_scan"
         android:title="Scan QR" />
 
     <item
-        android:id="@+id/navigation_Myqr"
+        android:id="@+id/miPlaceholder"
+        android:visible="true"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/miMyQr"
         android:icon="@drawable/ic_qr_code"
+        android:visible="true"
         android:title="My QR"  />
 
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
+        android:visible="true"
         android:title="profile" />
 
 </menu>

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.appsinvo.api.data.Category
 import com.appsinvo.databinding.ItemCategoryBinding
 
-class CategoryAdapter : ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(DiffCallBack()) {
+class CategoryAdapter(private val onClick:(String,Int) ->Unit) : ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(DiffCallBack()) {
 
 
     private class DiffCallBack : DiffUtil.ItemCallback<Category>() {
@@ -32,7 +32,11 @@ class CategoryAdapter : ListAdapter<Category, CategoryAdapter.CategoryViewHolder
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.binding.item = (getItem(position))
-        holder.binding.ivIcon.background = ContextCompat.getDrawable(holder.binding.ivIcon.context,getItem(position).icon)
+        holder.binding.ivIcon.background =
+            ContextCompat.getDrawable(holder.binding.ivIcon.context, getItem(position).icon)
+        holder.binding.root.setOnClickListener {
+            onClick.invoke(getItem(position).name,getItem(position).icon)
+        }
     }
 
     inner class CategoryViewHolder(val binding: ItemCategoryBinding) : ViewHolder(binding.root)

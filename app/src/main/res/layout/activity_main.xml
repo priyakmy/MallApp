@@ -1,46 +1,70 @@
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-   android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true">
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sample_main_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <include
-        layout="@layout/custom_toolbar_layout" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivBanner"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:src="@drawable/ic_banner"
-        android:layout_margin="8dp">
-    </androidx.appcompat.widget.AppCompatImageView>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCategory"
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar_layout"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        android:layout_height="0dp"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/sample_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_banner"></androidx.appcompat.widget.AppCompatImageView>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="3"
+                tools:itemCount="15"
+                tools:listitem="@layout/item_category" />
+
+            <include layout="@layout/layout_stay_safe" />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/bottomBar"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="10dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="3"
-        tools:itemCount="15"
-        tools:listitem="@layout/item_category" />
-
-    <include
-        layout="@layout/layout_stay_safe" />
-
-    <include
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         layout="@layout/layout_bottom_nav" />
 
-</LinearLayout>
-
-
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
